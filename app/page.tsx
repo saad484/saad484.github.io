@@ -159,14 +159,24 @@ export default function Home() {
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
         </nav>
-        <a
-          className="header-contact"
-          href="https://www.linkedin.com/in/saad-aiddi/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Contact <Arrow />
-        </a>
+        <div className="header-actions">
+          <a
+            className="header-blog"
+            href="https://hunter4hunter.tech/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Blog <Arrow />
+          </a>
+          <a
+            className="header-contact"
+            href="https://www.linkedin.com/in/saad-aiddi/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Contact <Arrow />
+          </a>
+        </div>
       </header>
 
       <div id="content">

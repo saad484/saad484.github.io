@@ -22,6 +22,8 @@ const portfolioChecks = (html) => {
   assert.match(html, /href="https:\/\/ebtikarweb\.com\/"/);
   assert.match(html, /href="https:\/\/creation-entreprise\.ma\/"/);
   assert.match(html, /href="https:\/\/e-polytechnique\.ma\/"/);
+  assert.match(html, /href="https:\/\/hunter4hunter\.tech\/"/);
+  assert.match(html, />Blog <span aria-hidden="true">↗<\/span>/);
   assert.doesNotMatch(html, /TryHackMe|followers|connections/i);
 };
 
