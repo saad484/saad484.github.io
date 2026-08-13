@@ -63,9 +63,9 @@ const experience = [
     period: "Jun 2023 — Aug 2023",
     role: "Software Engineer",
     organization: "Lecourt Consulting",
-    logo: null,
-    logoAlt: "",
-    url: null,
+    logo: "/logos/lecourt.png",
+    logoAlt: "Lecourt Consulting logo",
+    url: "https://creation-entreprise.ma/",
     location: "Internship · Agadir · On-site",
     summary:
       "Contributed to a web application simplifying the process of starting a business in France, delivering responsive interfaces through an agile team workflow.",

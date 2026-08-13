@@ -14,11 +14,13 @@ const portfolioChecks = (html) => {
   assert.match(html, /Green Energy Park logo/);
   assert.match(html, /EBTIKARWEB logo/);
   assert.match(html, /Holberton School logo/);
+  assert.match(html, /Lecourt Consulting logo/);
   assert.match(html, /Visit AREF · Regional Academy of Education and Training website/);
   assert.match(html, /href="https:\/\/cc\.um6p\.ma\/"/);
   assert.match(html, /href="https:\/\/www\.greenenergypark\.ma\/"/);
   assert.match(html, /href="https:\/\/aref-sm\.men\.gov\.ma\/ar\/"/);
   assert.match(html, /href="https:\/\/ebtikarweb\.com\/"/);
+  assert.match(html, /href="https:\/\/creation-entreprise\.ma\/"/);
   assert.match(html, /href="https:\/\/e-polytechnique\.ma\/"/);
   assert.doesNotMatch(html, /TryHackMe|followers|connections/i);
 };
@@ -64,6 +66,7 @@ test("GitHub Pages output is complete and static", async () => {
   assert.match(html, /src="\/public\/logos\/holberton\.jpg"/);
   assert.match(html, /src="\/public\/logos\/polytechnique-agadir\.jpg"/);
   assert.match(html, /src="\/public\/logos\/aref\.png"/);
+  assert.match(html, /src="\/public\/logos\/lecourt\.png"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/saad484\.github\.io\/">/);
   assert.match(html, /content="https:\/\/saad484\.github\.io\/public\/og\.png"/);
   assert.doesNotMatch(html, /<script\b|\/_next\//i);
