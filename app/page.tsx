@@ -3,6 +3,8 @@ const experience = [
     period: "Jul 2026 — Present",
     role: "Doctoral Student",
     organization: "UM6P College of Computing",
+    logo: "/logos/um6p-computing.jpg",
+    logoAlt: "UM6P College of Computing logo",
     location: "On-site · Morocco",
     summary:
       "Doctoral research in cybersecurity for cyber-physical and industrial control systems, with a focus on intelligent intrusion detection for SCADA and photovoltaic environments.",
@@ -12,6 +14,8 @@ const experience = [
     period: "Oct 2025 — Jul 2026",
     role: "Pre-Doctoral Fellow",
     organization: "UM6P College of Computing",
+    logo: "/logos/um6p-computing.jpg",
+    logoAlt: "UM6P College of Computing logo",
     location: "On-site · Morocco",
     summary:
       "Prepared the foundation for doctoral work across industrial cybersecurity, resilient sensing, data-driven detection, and secure energy infrastructure.",
@@ -21,6 +25,8 @@ const experience = [
     period: "Feb 2025 — Jul 2025",
     role: "Cybersecurity Research Assistant",
     organization: "Green Energy Park",
+    logo: "/logos/green-energy-park.jpg",
+    logoAlt: "Green Energy Park logo",
     location: "Internship · Benguerir · On-site",
     summary:
       "Contributed to applied cybersecurity research in a renewable-energy experimentation environment, connecting security analysis with operational energy systems.",
@@ -30,6 +36,8 @@ const experience = [
     period: "Jul 2024 — Oct 2024",
     role: "Cybersecurity Analyst",
     organization: "AREF · Regional Academy of Education and Training",
+    logo: null,
+    logoAlt: "",
     location: "Internship · Agadir · On-site",
     summary:
       "Secured the Tarsheed platform, a system dedicated to managing energy resources in educational institutions, through security assessment and risk-focused improvements.",
@@ -39,6 +47,8 @@ const experience = [
     period: "Jul 2024 — Sep 2024",
     role: "Software Automation Engineer",
     organization: "EBTIKARWEB",
+    logo: "/logos/ebtikarweb.jpg",
+    logoAlt: "EBTIKARWEB logo",
     location: "Internship · Agadir · Hybrid",
     summary:
       "Designed an autonomous astrophotography pipeline using N.I.N.A., Python, REST APIs, scheduling, rules-based target planning, and equipment safety automation.",
@@ -48,6 +58,8 @@ const experience = [
     period: "Jun 2023 — Aug 2023",
     role: "Software Engineer",
     organization: "Lecourt Consulting",
+    logo: null,
+    logoAlt: "",
     location: "Internship · Agadir · On-site",
     summary:
       "Contributed to a web application simplifying the process of starting a business in France, delivering responsive interfaces through an agile team workflow.",
@@ -61,18 +73,24 @@ const education = [
     school: "UM6P — University Mohammed VI Polytechnic",
     degree: "Doctor of Philosophy · PhD",
     note: "Cybersecurity of cyber-physical and industrial control systems",
+    logo: "/logos/um6p.jpg",
+    logoAlt: "University Mohammed VI Polytechnic logo",
   },
   {
     period: "Jul 2023 — Jul 2024",
     school: "Holberton School",
     degree: "Associate's degree · Computer Software Engineering",
     note: "Systems foundations, backend engineering, and collaborative software delivery",
+    logo: "/logos/holberton.jpg",
+    logoAlt: "Holberton School logo",
   },
   {
     period: "Oct 2020 — Oct 2025",
     school: "École Polytechnique d’Agadir",
     degree: "Cybersecurity Engineer · Computer Science",
     note: "Cybersecurity, software engineering, networks, and applied computer science",
+    logo: "/logos/polytechnique-agadir.jpg",
+    logoAlt: "École Polytechnique d’Agadir logo",
   },
 ];
 
@@ -208,9 +226,23 @@ export default function Home() {
                 <div className="timeline-index">{String(index + 1).padStart(2, "0")}</div>
                 <div className="timeline-period">{item.period}</div>
                 <div className="timeline-content">
-                  <h3>{item.role}</h3>
-                  <p className="organization">{item.organization}</p>
-                  <p className="location">{item.location}</p>
+                  <div className="entry-heading">
+                    {item.logo && (
+                      <img
+                        className="organization-logo"
+                        src={item.logo}
+                        alt={item.logoAlt}
+                        width="56"
+                        height="56"
+                        loading="lazy"
+                      />
+                    )}
+                    <div>
+                      <h3>{item.role}</h3>
+                      <p className="organization">{item.organization}</p>
+                      <p className="location">{item.location}</p>
+                    </div>
+                  </div>
                   <p className="summary">{item.summary}</p>
                   <ul aria-label={`${item.role} skills`}>
                     {item.topics.map((topic) => <li key={topic}>{topic}</li>)}
@@ -230,11 +262,21 @@ export default function Home() {
             {education.map((item, index) => (
               <article key={item.school}>
                 <span className="education-index">{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <p className="education-period">{item.period}</p>
-                  <h3>{item.school}</h3>
-                  <p className="degree">{item.degree}</p>
-                  <p className="education-note">{item.note}</p>
+                <div className="education-heading">
+                  <img
+                    className="education-logo"
+                    src={item.logo}
+                    alt={item.logoAlt}
+                    width="64"
+                    height="64"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="education-period">{item.period}</p>
+                    <h3>{item.school}</h3>
+                    <p className="degree">{item.degree}</p>
+                    <p className="education-note">{item.note}</p>
+                  </div>
                 </div>
               </article>
             ))}

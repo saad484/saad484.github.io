@@ -72,6 +72,7 @@ html = html
   .replace(/<!--[\s\S]*?-->/g, "")
   .replaceAll('href="/saad-aiddi.jpeg"', 'href="/public/saad-aiddi.jpeg"')
   .replaceAll('src="/saad-aiddi.jpeg"', 'src="/public/saad-aiddi.jpeg"')
+  .replaceAll('src="/logos/', 'src="/public/logos/')
   .replace(
     "</head>",
     `${metadata}\n<style>:root{--font-geist-sans:Arial,sans-serif;--font-geist-mono:monospace}${stylesheet}</style></head>`,

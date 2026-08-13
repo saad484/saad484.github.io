@@ -10,6 +10,10 @@ const portfolioChecks = (html) => {
   assert.match(html, /Cybersecurity Research Assistant/);
   assert.match(html, /Software Automation Engineer/);
   assert.match(html, /Doctor of Philosophy/);
+  assert.match(html, /UM6P College of Computing logo/);
+  assert.match(html, /Green Energy Park logo/);
+  assert.match(html, /EBTIKARWEB logo/);
+  assert.match(html, /Holberton School logo/);
   assert.doesNotMatch(html, /TryHackMe|followers|connections/i);
 };
 
@@ -47,6 +51,12 @@ test("GitHub Pages output is complete and static", async () => {
   portfolioChecks(html);
   assert.match(html, /<style>/);
   assert.match(html, /src="\/public\/saad-aiddi\.jpeg"/);
+  assert.match(html, /src="\/public\/logos\/um6p-computing\.jpg"/);
+  assert.match(html, /src="\/public\/logos\/green-energy-park\.jpg"/);
+  assert.match(html, /src="\/public\/logos\/ebtikarweb\.jpg"/);
+  assert.match(html, /src="\/public\/logos\/um6p\.jpg"/);
+  assert.match(html, /src="\/public\/logos\/holberton\.jpg"/);
+  assert.match(html, /src="\/public\/logos\/polytechnique-agadir\.jpg"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/saad484\.github\.io\/">/);
   assert.match(html, /content="https:\/\/saad484\.github\.io\/public\/og\.png"/);
   assert.doesNotMatch(html, /<script\b|\/_next\//i);
