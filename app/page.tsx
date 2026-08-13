@@ -5,6 +5,7 @@ const experience = [
     organization: "UM6P College of Computing",
     logo: "/logos/um6p-computing.jpg",
     logoAlt: "UM6P College of Computing logo",
+    url: "https://cc.um6p.ma/",
     location: "On-site · Morocco",
     summary:
       "Doctoral research in cybersecurity for cyber-physical and industrial control systems, with a focus on intelligent intrusion detection for SCADA and photovoltaic environments.",
@@ -16,6 +17,7 @@ const experience = [
     organization: "UM6P College of Computing",
     logo: "/logos/um6p-computing.jpg",
     logoAlt: "UM6P College of Computing logo",
+    url: "https://cc.um6p.ma/",
     location: "On-site · Morocco",
     summary:
       "Prepared the foundation for doctoral work across industrial cybersecurity, resilient sensing, data-driven detection, and secure energy infrastructure.",
@@ -27,6 +29,7 @@ const experience = [
     organization: "Green Energy Park",
     logo: "/logos/green-energy-park.jpg",
     logoAlt: "Green Energy Park logo",
+    url: "https://www.greenenergypark.ma/",
     location: "Internship · Benguerir · On-site",
     summary:
       "Contributed to applied cybersecurity research in a renewable-energy experimentation environment, connecting security analysis with operational energy systems.",
@@ -36,8 +39,9 @@ const experience = [
     period: "Jul 2024 — Oct 2024",
     role: "Cybersecurity Analyst",
     organization: "AREF · Regional Academy of Education and Training",
-    logo: null,
-    logoAlt: "",
+    logo: "/logos/aref.png",
+    logoAlt: "AREF logo",
+    url: "https://aref-sm.men.gov.ma/ar/",
     location: "Internship · Agadir · On-site",
     summary:
       "Secured the Tarsheed platform, a system dedicated to managing energy resources in educational institutions, through security assessment and risk-focused improvements.",
@@ -49,6 +53,7 @@ const experience = [
     organization: "EBTIKARWEB",
     logo: "/logos/ebtikarweb.jpg",
     logoAlt: "EBTIKARWEB logo",
+    url: "https://ebtikarweb.com/",
     location: "Internship · Agadir · Hybrid",
     summary:
       "Designed an autonomous astrophotography pipeline using N.I.N.A., Python, REST APIs, scheduling, rules-based target planning, and equipment safety automation.",
@@ -60,6 +65,7 @@ const experience = [
     organization: "Lecourt Consulting",
     logo: null,
     logoAlt: "",
+    url: null,
     location: "Internship · Agadir · On-site",
     summary:
       "Contributed to a web application simplifying the process of starting a business in France, delivering responsive interfaces through an agile team workflow.",
@@ -75,6 +81,7 @@ const education = [
     note: "Cybersecurity of cyber-physical and industrial control systems",
     logo: "/logos/um6p.jpg",
     logoAlt: "University Mohammed VI Polytechnic logo",
+    url: "https://www.um6p.ma/en/",
   },
   {
     period: "Jul 2023 — Jul 2024",
@@ -83,6 +90,7 @@ const education = [
     note: "Systems foundations, backend engineering, and collaborative software delivery",
     logo: "/logos/holberton.jpg",
     logoAlt: "Holberton School logo",
+    url: "https://www.holbertonschool.com/",
   },
   {
     period: "Oct 2020 — Oct 2025",
@@ -91,6 +99,7 @@ const education = [
     note: "Cybersecurity, software engineering, networks, and applied computer science",
     logo: "/logos/polytechnique-agadir.jpg",
     logoAlt: "École Polytechnique d’Agadir logo",
+    url: "https://e-polytechnique.ma/",
   },
 ];
 
@@ -228,14 +237,23 @@ export default function Home() {
                 <div className="timeline-content">
                   <div className="entry-heading">
                     {item.logo && (
-                      <img
-                        className="organization-logo"
-                        src={item.logo}
-                        alt={item.logoAlt}
-                        width="56"
-                        height="56"
-                        loading="lazy"
-                      />
+                      <a
+                        className="logo-link organization-logo-link"
+                        href={item.url ?? undefined}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Visit ${item.organization} website`}
+                        title={`Visit ${item.organization}`}
+                      >
+                        <img
+                          className="logo-image"
+                          src={item.logo}
+                          alt={item.logoAlt}
+                          width="56"
+                          height="56"
+                          loading="lazy"
+                        />
+                      </a>
                     )}
                     <div>
                       <h3>{item.role}</h3>
@@ -263,14 +281,23 @@ export default function Home() {
               <article key={item.school}>
                 <span className="education-index">{String(index + 1).padStart(2, "0")}</span>
                 <div className="education-heading">
-                  <img
-                    className="education-logo"
-                    src={item.logo}
-                    alt={item.logoAlt}
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                  />
+                  <a
+                    className="logo-link education-logo-link"
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visit ${item.school} website`}
+                    title={`Visit ${item.school}`}
+                  >
+                    <img
+                      className="logo-image"
+                      src={item.logo}
+                      alt={item.logoAlt}
+                      width="64"
+                      height="64"
+                      loading="lazy"
+                    />
+                  </a>
                   <div>
                     <p className="education-period">{item.period}</p>
                     <h3>{item.school}</h3>

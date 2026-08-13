@@ -70,6 +70,7 @@ html = html
   .replace(/<style\b[^>]*data-vinext-fonts[^>]*>[\s\S]*?<\/style>/gi, "")
   .replace(/<div hidden=""><!--\$--><div hidden="">[\s\S]*?<\/div><!--\/\$--><\/div>/gi, "")
   .replace(/<!--[\s\S]*?-->/g, "")
+  .replace(/<\/main>[\s\S]*?<\/body>/i, "</main></body>")
   .replaceAll('href="/saad-aiddi.jpeg"', 'href="/public/saad-aiddi.jpeg"')
   .replaceAll('src="/saad-aiddi.jpeg"', 'src="/public/saad-aiddi.jpeg"')
   .replaceAll('src="/logos/', 'src="/public/logos/')

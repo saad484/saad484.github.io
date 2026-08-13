@@ -186,14 +186,58 @@ a { color: inherit; text-decoration: none; }
 }
 .timeline-index { color: var(--accent); }
 .entry-heading { display: flex; gap: 1rem; align-items: flex-start; }
-.organization-logo {
+.logo-link {
+  position: relative;
+  display: block;
   flex: 0 0 auto;
-  width: 56px;
-  height: 56px;
+  overflow: hidden;
   padding: .28rem;
-  object-fit: contain;
   background: white;
   border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(17, 20, 17, .04);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.organization-logo-link {
+  width: 56px;
+  height: 56px;
+}
+.logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 180ms ease;
+}
+.logo-link::after {
+  content: "↗";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  color: white;
+  background: var(--accent);
+  font-size: .62rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(4px, 4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.logo-link:hover,
+.logo-link:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(17, 20, 17, .12);
+  transform: translateY(-3px);
+}
+.logo-link:hover .logo-image,
+.logo-link:focus-visible .logo-image { transform: scale(1.06); }
+.logo-link:hover::after,
+.logo-link:focus-visible::after { opacity: 1; transform: translate(0, 0); }
+.logo-link:focus-visible { outline-offset: 3px; }
+@media (hover: none) {
+  .logo-link::after { opacity: 1; transform: translate(0, 0); }
 }
 .timeline-content h3 { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2.5rem); font-weight: 550; line-height: 1.05; letter-spacing: -.045em; }
 .organization { margin: .55rem 0 0; font-weight: 590; }
@@ -210,13 +254,9 @@ a { color: inherit; text-decoration: none; }
 .education-period { color: #97b695; font-family: var(--font-geist-mono), monospace; font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; }
 .education-period { margin: 0 0 .65rem; }
 .education-heading { display: flex; gap: 1.35rem; align-items: flex-start; }
-.education-logo {
-  flex: 0 0 auto;
+.education-logo-link {
   width: 64px;
   height: 64px;
-  padding: .3rem;
-  object-fit: contain;
-  background: white;
   border: 1px solid rgba(255,255,255,.24);
 }
 .education-list h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 3.2rem); font-weight: 530; letter-spacing: -.05em; }
@@ -268,10 +308,10 @@ footer p:last-child { justify-self: end; }
   .timeline-item { grid-template-columns: 30px 1fr; gap: 1rem; }
   .timeline-period { grid-column: 2; grid-row: 1; }
   .timeline-content { grid-column: 2; }
-  .organization-logo { width: 48px; height: 48px; }
+  .organization-logo-link { width: 48px; height: 48px; }
   .education-list article { grid-template-columns: 36px 1fr; gap: 1rem; }
   .education-heading { gap: .9rem; }
-  .education-logo { width: 52px; height: 52px; }
+  .education-logo-link { width: 52px; height: 52px; }
   .skills ul { grid-template-columns: 1fr; }
   .skills li,
   .skills li:nth-child(3n + 2),
